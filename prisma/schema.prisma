@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int         @id @default(autoincrement())
+  name      String
+  email     String      @unique
+  password  String
+  stamps    UserStamp[]  // Relation to join table
+  createdAt DateTime    @default(now())
+}
+
+model Stamp {
+  id        Int         @id @default(autoincrement())
+  code      String      @unique
+  name      String
+  users     UserStamp[] // Relation to join table
+  createdAt DateTime    @default(now())
+}
+
+model UserStamp {
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  stamp     Stamp    @relation(fields: [stampId], references: [id])
+  stampId   Int
+  createdAt DateTime @default(now())
+
+  @@id([userId, stampId])
+}
