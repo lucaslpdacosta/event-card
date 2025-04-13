@@ -14,9 +14,9 @@
     "jsonwebtoken": "^9.0.2",
     "next": "15.2.4",
     "prisma": "^6.5.0",
+    "qr-scanner": "^1.4.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-qr-reader": "^3.0.0-beta-1",
     "react-toastify": "^11.0.5"
   },
   "devDependencies": {
