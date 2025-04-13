@@ -12,7 +12,7 @@ model User {
   name      String
   email     String      @unique
   password  String
-  stamps    UserStamp[]  // Relation to join table
+  stamps    UserStamp[]
   createdAt DateTime    @default(now())
 }
 
@@ -20,7 +20,7 @@ model Stamp {
   id        Int         @id @default(autoincrement())
   code      String      @unique
   name      String
-  users     UserStamp[] // Relation to join table
+  users     UserStamp[]
   createdAt DateTime    @default(now())
 }
 
